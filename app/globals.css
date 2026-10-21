@@ -1,0 +1,653 @@
+/*
+  Reuben League design tokens
+  ---------------------------
+  The uploaded template (Stamina by Free-Template.co) ships zero CSS custom
+  properties: its palette lives in Bootstrap Sass variables and literal hex
+  values inside css/style.css. Every token below is transcribed verbatim from
+  those literal values so the built site carries the template palette and
+  type stack unchanged. See docs/TEMPLATE-AUDIT.md for the full mapping.
+  Template type stack: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, "Helvetica Neue", Arial, ... (Google Fonts request: Muli 300,400,700,900)
+*/
+
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/muli/muli-latin-300-normal.woff2') format('woff2'),
+    url('/fonts/muli/muli-latin-300-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/muli/muli-latin-400-normal.woff2') format('woff2'),
+    url('/fonts/muli/muli-latin-400-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/muli/muli-latin-700-normal.woff2') format('woff2'),
+    url('/fonts/muli/muli-latin-700-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/muli/muli-latin-900-normal.woff2') format('woff2'),
+    url('/fonts/muli/muli-latin-900-normal.woff') format('woff');
+}
+
+/* Icon font from the template, kept verbatim (fonts/icomoon/style.css) */
+@font-face {
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon/fonts/icomoon.eot?10si43');
+  src: url('/fonts/icomoon/fonts/icomoon.eot?10si43#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon/fonts/icomoon.ttf?10si43') format('truetype'),
+    url('/fonts/icomoon/fonts/icomoon.woff?10si43') format('woff'),
+    url('/fonts/icomoon/fonts/icomoon.svg?10si43#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  /* Core palette, literal hex values from css/style.css */
+  --color-primary: #f23a2e;
+  --color-primary-soft: #ff7c67;
+  --color-accent: #f89d13;
+  --color-brand-green: #8bc34a;
+  --color-ink: #000000;
+  --color-ink-soft: #25262a;
+  --color-ink-muted: #343a40;
+  --color-body: #989898;
+  --color-muted: #ababab;
+  --color-muted-2: #aeaeae;
+  --color-silver: #999999;
+  --color-line: #edf0f5;
+  --color-line-soft: #f3f3f4;
+  --color-line-2: #eee;
+  --color-surface: #f4f5f9;
+  --color-surface-2: #f8f9fa;
+  --color-chip: #cccccc;
+  --color-white: #ffffff;
+
+  /* Type: template stack, Muli first */
+  --font-sans: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+
+  /* Radius used by the template cards and thumbnails */
+  --radius-card: 4px;
+
+  /* Shadows used by the template cards */
+  --shadow-card: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 0 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+:root {
+  /* Aliases kept as CSS custom properties so every value is addressable
+     from inline styles and from Recharts colour props. */
+  --rl-primary: #f23a2e;
+  --rl-primary-soft: #ff7c67;
+  --rl-accent: #f89d13;
+  --rl-green: #8bc34a;
+  --rl-black: #000000;
+  --rl-body: #989898;
+  --rl-muted: #ababab;
+  --rl-line: #edf0f5;
+  --rl-surface: #f4f5f9;
+  --rl-surface-2: #f8f9fa;
+  --rl-white: #ffffff;
+  --rl-font-sans: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+@layer base {
+  html {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--rl-font-sans);
+    line-height: 1.7;
+    font-weight: 300;
+    color: var(--rl-body);
+    background-color: var(--rl-white);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    font-family: var(--rl-font-sans);
+    color: var(--rl-black);
+  }
+
+  ::selection {
+    background: var(--rl-black);
+    color: var(--rl-white);
+  }
+
+  :-moz-selection {
+    background: var(--rl-black);
+    color: var(--rl-white);
+  }
+
+  a {
+    transition: 0.3s all ease;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--rl-white), 0 0 0 4px var(--rl-primary);
+    border-radius: 2px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  /* Buttons, transcribed from the template .btn rules */
+  .btn {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    border-width: 2px;
+    border-style: solid;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: 0.3s all ease;
+  }
+
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    background: var(--rl-primary);
+    border-color: var(--rl-primary);
+    color: var(--rl-white);
+  }
+
+  .btn-primary:hover {
+    background: var(--rl-black);
+    border-color: var(--rl-black);
+    color: var(--rl-white);
+  }
+
+  .btn-black {
+    background: var(--rl-black);
+    border-color: var(--rl-black);
+    color: var(--rl-white);
+  }
+
+  .btn-black:hover {
+    background: transparent;
+    border-color: var(--rl-black);
+    color: var(--rl-black);
+  }
+
+  .btn-outline-black {
+    background: transparent;
+    border-color: var(--rl-black);
+    color: var(--rl-black);
+  }
+
+  .btn-outline-black:hover {
+    background: var(--rl-black);
+    border-color: var(--rl-black);
+    color: var(--rl-white);
+  }
+
+  .btn-outline-white {
+    background: transparent;
+    border-color: var(--rl-white);
+    color: var(--rl-white);
+  }
+
+  .btn-outline-white:hover {
+    background: var(--rl-white);
+    border-color: var(--rl-white);
+    color: var(--rl-black);
+  }
+
+  .btn-white {
+    background: var(--rl-white);
+    border-color: var(--rl-white);
+    color: var(--rl-black);
+  }
+
+  .btn-white:hover {
+    background: transparent;
+    border-color: var(--rl-white);
+    color: var(--rl-white);
+  }
+
+  /* Sections and headings */
+  .site-section {
+    padding: 2.5em 0;
+  }
+
+  @media (min-width: 768px) {
+    .site-section {
+      padding: 5em 0;
+    }
+  }
+
+  .section-heading .subheading {
+    color: var(--rl-muted);
+    font-size: 1.2rem;
+    display: inline-block;
+  }
+
+  .section-heading .heading {
+    color: var(--rl-black);
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.15;
+  }
+
+  /* Hero, transcribed from .intro-section */
+  .intro-section {
+    position: relative;
+  }
+
+  .intro-section > .container {
+    z-index: 10;
+    position: relative;
+  }
+
+  .intro-section:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .intro-section h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--rl-white);
+  }
+
+  @media (min-width: 992px) {
+    .intro-section h1 {
+      font-size: 4rem;
+    }
+  }
+
+  .intro-section .desc {
+    color: white;
+    font-size: 1.1rem;
+    max-width: 700px;
+  }
+
+  /* Full width photo band, transcribed from .bgimg */
+  .bgimg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .bgimg:before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .bgimg > .container {
+    z-index: 2;
+    position: relative;
+  }
+
+  .bgimg h2 {
+    color: var(--rl-white);
+    font-size: 2rem;
+    margin-top: 0;
+    font-weight: 900;
+  }
+
+  @media (min-width: 992px) {
+    .bgimg h2 {
+      font-size: 3rem;
+    }
+  }
+
+  /* Red skewed strip, transcribed from .schedule-wrap */
+  .schedule-wrap {
+    padding: 40px;
+    background: var(--rl-primary);
+    position: relative;
+    z-index: 9;
+    color: white;
+  }
+
+  .schedule-wrap:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: inherit;
+    transform-origin: bottom left;
+    transform: skew(-12deg, 0deg);
+  }
+
+  .schedule-wrap strong {
+    color: var(--rl-white);
+    font-weight: bold;
+  }
+
+  /* Cards, transcribed from .class-item and .ftco-feature-1 */
+  .rl-card {
+    border-radius: 4px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    background: var(--rl-white);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s all ease;
+  }
+
+  .rl-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.18);
+  }
+
+  .rl-feature {
+    text-align: center;
+    background: var(--rl-white);
+    padding: 2rem 1.5rem;
+    transition: 0.3s all ease;
+    border-radius: 4px;
+  }
+
+  .rl-feature:hover {
+    box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .rl-feature .icon {
+    font-size: 56px;
+    color: var(--rl-primary);
+  }
+
+  /* Form controls, transcribed from the template .form-control */
+  .rl-input {
+    width: 100%;
+    min-height: 44px;
+    border: 2px solid var(--rl-line);
+    border-radius: 0;
+    background: var(--rl-white);
+    padding: 0.65rem 0.9rem;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--rl-ink-soft);
+    transition: 0.2s all ease;
+  }
+
+  .rl-input::placeholder {
+    color: var(--rl-muted);
+    font-weight: 300;
+  }
+
+  .rl-input:hover,
+  .rl-input:focus {
+    border-color: var(--rl-primary);
+    box-shadow: none;
+  }
+
+  .rl-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rl-ink-soft);
+    margin-bottom: 0.4rem;
+  }
+
+  .rl-error {
+    color: var(--rl-primary);
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 0.35rem;
+  }
+
+  /* Status pills */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    line-height: 1.4;
+  }
+
+  .pill-active {
+    background: rgba(139, 195, 74, 0.16);
+    color: #3f6f12;
+  }
+
+  .pill-upcoming {
+    background: rgba(248, 157, 19, 0.16);
+    color: #8a5300;
+  }
+
+  .pill-completed {
+    background: var(--rl-surface);
+    color: #5a6572;
+  }
+
+  .pill-live {
+    background: rgba(242, 58, 46, 0.12);
+    color: var(--rl-primary);
+  }
+
+  /* Table shell reused by every standings and squad table */
+  .rl-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .rl-table thead th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rl-muted);
+    padding: 0.6rem 0.5rem;
+    border-bottom: 2px solid var(--rl-line);
+    white-space: nowrap;
+  }
+
+  .rl-table tbody td {
+    padding: 8px;
+    border-bottom: 1px solid var(--rl-line);
+    font-size: 14px;
+    color: var(--rl-ink-soft);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) {
+    .rl-table thead th {
+      padding: 10px 12px;
+    }
+
+    .rl-table tbody td {
+      padding: 10px 12px;
+      font-size: 16px;
+    }
+  }
+
+  .rl-table tbody tr:hover {
+    background: var(--rl-surface-2);
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* iOS safe area helpers, kept unlayered so they win over Tailwind utilities */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
+  .bottom-safe {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+@keyframes rl-pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes rl-float-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes rl-live-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes rl-roll {
+  0% {
+    transform: translateX(-8vw) rotate(0deg);
+  }
+  100% {
+    transform: translateX(58vw) rotate(720deg);
+  }
+}
+
+@keyframes rl-countdown-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.85;
+  }
+}
+
+@keyframes rl-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: rl-pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-live-dot {
+  animation: rl-live-dot 1.4s ease-in-out infinite;
+}
+
+.animate-countdown {
+  animation: rl-countdown-pulse 2s ease-in-out infinite;
+}
+
+.animate-roll {
+  animation: rl-roll 1.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
+.animate-fade-up {
+  animation: rl-fade-up 0.6s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
