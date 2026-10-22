@@ -43,6 +43,12 @@ export function formatSeasonRange(start: string, end: string): string {
   return `${formatShortDate(start)} to ${formatShortDate(end)}`
 }
 
+export function formatSeasonLabel(start: string, end: string): string {
+  const startYear = new Date(start).getUTCFullYear()
+  const endYear = new Date(end).getUTCFullYear()
+  return startYear === endYear ? String(startYear) : `${startYear}/${String(endYear).slice(2)}`
+}
+
 export function formatGoalDifference(value: number): string {
   if (value > 0) return `+${value}`
   return String(value)
