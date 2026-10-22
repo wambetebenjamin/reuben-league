@@ -40,8 +40,22 @@ email: admin@reubenleague.co.ke
 password: reuben-admin
 ```
 
-Set both variables in production. Google sign in appears automatically when `GOOGLE_CLIENT_ID` and
-`GOOGLE_CLIENT_SECRET` are set.
+`ADMIN_EMAIL` and `ADMIN_PASSWORD` are set in the production environment, so the fallback above only applies to a
+local checkout. Google sign in appears automatically when `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` are set.
+
+## Live deployment
+
+| | |
+| --- | --- |
+| URL | https://reuben-league.vercel.app |
+| Vercel project | `reuben-league` (team `wambete-benjamin-s-projects`) |
+| Production branch | `main` |
+| Region | `cdg1`, set in `vercel.json` |
+
+Production environment variables: `NEXT_PUBLIC_SITE_URL`, `NEXTAUTH_URL`, `NEXTAUTH_SECRET`, `ADMIN_PASSWORD` and
+`NEXT_PUBLIC_WHATSAPP_NUMBER`. Storage, email and reCAPTCHA keys are not set yet, so results and registrations live
+in the in-memory seed store and mail sends are skipped with a log line. Add `KV_REST_API_URL` and `KV_REST_API_TOKEN`
+to make admin edits persist across requests.
 
 ## Environment variables
 
