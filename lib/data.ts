@@ -10,6 +10,7 @@ import type {
   Sport,
   Team,
 } from './types'
+import { formatSeasonLabel } from './format'
 
 /**
  * Deterministic seed data for Reuben League.
@@ -475,7 +476,7 @@ export function getSeedData(): SeedResult {
       name: config.name,
       sport: config.sport,
       county: config.county,
-      season: `${new Date(config.seasonStart).getUTCFullYear()}/${String(new Date(config.seasonEnd).getUTCFullYear()).slice(2)}`,
+      season: formatSeasonLabel(config.seasonStart, config.seasonEnd),
       seasonStart: config.seasonStart,
       seasonEnd: config.seasonEnd,
       teamCount: config.teams.length,

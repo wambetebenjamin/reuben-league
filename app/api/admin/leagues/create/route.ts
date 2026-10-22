@@ -3,6 +3,7 @@ import { apiError, requireAdmin, slugify, validationError } from '@/lib/api'
 import { verifyRecaptcha } from '@/lib/recaptcha'
 import { leagueSchema } from '@/lib/validation'
 import { getLeagues, createLeague } from '@/lib/store'
+import { formatSeasonLabel } from '@/lib/format'
 
 export const runtime = 'nodejs'
 
@@ -36,16 +37,13 @@ export async function POST(request: Request) {
     suffix += 1
   }
 
-  const startYear = new Date(values.seasonStart).getUTCFullYear()
-  const endYear = new Date(values.seasonEnd).getUTCFullYear()
-
   const league = await createLeague({
     slug,
     code: slug.split('-').map((part) => part[0]).join('').slice(0, 5) || 'rll',
     name: values.name,
     sport: values.sport,
     county: values.county,
-    season: startYear === endYear ? String(startYear) : `${startYear}/${String(endYear).slice(2)}`,
+    season: formatSeasonLabel(values.seasonStart, values.seasonEnd),
     seasonStart: values.seasonStart,
     seasonEnd: values.seasonEnd,
     teamCount: values.teamCount,
